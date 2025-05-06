@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews & Blogs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background-color: #F0F8EA;
+            color: #2C3E50;
+        }
+        header {
+            background-color: #2E7D32;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        nav ul li a:hover {
+            color: #D4E157;
+        }
+        main {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h2 {
+            color: #2E7D32;
+            font-size: 1.8em;
+            text-align: center;
+            border-bottom: 2px solid #A5D6A7;
+            padding-bottom: 5px;
+        }
+        .review-box {
+            border: 2px solid #A5D6A7;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #2E7D32;
+        }
+        .review-form input, .review-form textarea, .review-form button {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+        .review-form button {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .review-form button:hover {
+            background-color: #1B5E20;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Karl Eats - Reviews & Blogs</h1>
+        <nav>
+            <ul>
+                 <li><a href="index.html">Home</a></li>
+                 <li><a href="resources.html">Resources</a></li>
+                 <li><a href="flexi.html">USF Meal Plan</a></li>
+                 <li><a href="reviews.html">Reviews & Blogs</a></li>
+                 <li><a href="grocery.html">Grocery Prices</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Student Reviews</h2>
+        <div class="review-box">
+            <h3>Review: The Cafeteria’s Vegan Options</h3>
+            <p>"I love that USF offers vegan options, but I wish they had more variety. The tofu scramble is amazing!" - Sarah, Sophomore</p>
+        </div>
+        <div class="review-box">
+            <h3>Review: Best Cafeteria Meals</h3>
+            <p>"The burrito bowl is definitely the best option on campus! It's affordable and filling." - Alex, Junior</p>
+        </div>
+        <div>
+            <print submitReview()>
+        </div>
+    </main>
+
+        <h2>Add Your Own Review</h2>
+        <form class="review-form">
+            <input type="text" id="reviewer-name" placeholder="Your Name">
+            <textarea id="review-text" rows="4" placeholder="Write your review here..."></textarea>
+            <button type="button" onclick="submitReview()">Submit Review</button>
+        </form>
+
+        <div id="new-reviews"></div>
+    </main>
+
+    <script>
+        function submitReview() {
+            let name = document.getElementById("reviewer-name").value;
+            let reviewText = document.getElementById("review-text").value;
+
+            if (name && reviewText) {
+                let newReview = document.createElement("div");
+                newReview.classList.add("review-box");
+                newReview.innerHTML = `<h3>Review by ${name}</h3><p>${reviewText}</p>`;
+
+                document.getElementById("new-reviews").appendChild(newReview);
+                document.getElementById("reviewer-name").value = "";
+                document.getElementById("review-text").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
