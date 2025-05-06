@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Price Comparisons</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background-color: #F0F8EA;
+            color: #2C3E50;
+        }
+        header {
+            background-color: #2E7D32;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        nav ul li a:hover {
+            color: #D4E157;
+        }
+        main {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h2 {
+            color: #2E7D32;
+            font-size: 1.8em;
+            text-align: center;
+            border-bottom: 2px solid #A5D6A7;
+            padding-bottom: 5px;
+        }
+        .review-box {
+            border: 2px solid #A5D6A7;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #2E7D32;
+        }
+        .review-form input, .review-form textarea, .review-form button {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+        .review-form button {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .review-form button:hover {
+            background-color: #1B5E20;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Karl Eats - Grocery Prices</h1>
+        <nav>
+            <ul>
+                 <li><a href="index.html">Home</a></li>
+                 <li><a href="resources.html">Resources</a></li>
+                 <li><a href="flexi.html">USF Meal Plan</a></li>
+                 <li><a href="reviews.html">Reviews & Blogs</a></li>
+                 <li><a href="grocery.html">Grocery Prices</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Compare Grocery Prices</h2>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Trader Joe’s</th>
+                <th>Safeway</th>
+                <th>Whole Foods</th>
+            </tr>
+            <tr>
+                <td>Bananas (per lb)</td>
+                <td>$0.19</td>
+                <td>$0.59</td>
+                <td>$0.69</td>
+            </tr>
+            <tr>
+                <td>Organic Milk (1 gallon)</td>
+                <td>$4.99</td>
+                <td>$5.49</td>
+                <td>$6.99</td>
+            </tr>
+            <tr>
+                <td>Eggs (dozen)</td>
+                <td>$2.99</td>
+                <td>$3.49</td>
+                <td>$4.99</td>
+            </tr>
+        </table>
+
+        <h2>Add Price Comparison</h2>
+        <form class="review-form">
+            <input type="text" id="item-name" placeholder="Item Name">
+            <input type="text" id="store1" placeholder="Price at Trader Joe’s">
+            <input type="text" id="store2" placeholder="Price at Safeway">
+            <input type="text" id="store3" placeholder="Price at Whole Foods">
+            <button type="button" onclick="submitPrice()">Submit</button>
+        </form>
+
+        <div id="new-prices"></div>
+    </main>
+
+    <script>
+        function submitPrice() {
+            let item = document.getElementById("item-name").value;
+            let store1 = document.getElementById("store1").value;
+            let store2 = document.getElementById("store2").value;
+            let store3 = document.getElementById("store3").value;
+
+            if (item && store1 && store2 && store3) {
+                let newRow = `<tr><td>${item}</td><td>${store1}</td><td>${store2}</td><td>${store3}</td></tr>`;
+                document.querySelector("table").innerHTML += newRow;
+            }
+        }
+    </script>
+</body>
+</html>

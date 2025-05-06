@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+#what the site will look like
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources Around USF</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background-color: #F0F8EA;
+            color: #2C3E50;
+        }
+        header {
+            background-color: #2E7D32;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+        nav ul li a:hover {
+            color: #D4E157;
+        }
+        main {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h2 {
+            color: #2E7D32;
+            font-size: 1.8em;
+            text-align: center;
+            border-bottom: 2px solid #A5D6A7;
+            padding-bottom: 5px;
+        }
+        .review-box {
+            border: 2px solid #A5D6A7;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #2E7D32;
+        }
+        .review-form input, .review-form textarea, .review-form button {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+        .review-form button {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .review-form button:hover {
+            background-color: #1B5E20;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Karl Eats - Resources Around USF</h1>
+        <nav>
+            <ul>
+                 <li><a href="index.html">Home</a></li>
+                 <li><a href="resources.html">Resources</a></li>
+                 <li><a href="flexi.html">USF Meal Plan</a></li>
+                 <li><a href="reviews.html">Reviews & Blogs</a></li>
+                 <li><a href="grocery.html">Grocery Prices</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Resources</h2>
+        <h3>The Food Pantry:</h3>
+        <p>The Food Pantry is open to all undergraduate and graduate students with no questions asked!! This organization is open, welcoming, and inclusive in helping students who are experiencing any degree of food insecurity.</p>
+        <p><strong>Where?</strong> Gleeson Library Atrium</p>
+        <p><strong>Phone?</strong> (415) 422-4099</p>
+        <p><strong>Email?</strong> usfpantry@usfca.edu</p>
+        <p><strong>Website?</strong> myusf.usfca.edu/food-pantry</p>
+        <p>For additional information check out the instagram @usfpantryinstagram.com/usfpantry</p>
+        <p></p>
+        <p><strong>The Food Pantry also recommends these other food services in San Francisco</strong></p>
+        <p>The Richmond Community Center</p>
+        <p> richmonds.org - (415) 751-6600</p>
+        <p>Haight Ashbury Food Program</p>
+        <p> thefoodprogram.org - (415) 564-7321</p>
+        <p>St. John's Presbyterian Church</p>
+        <p> stjohnssf.org - (415) 751-1626</p>
+        <p></p>
+        <h3>Food Recovery Network</h3>
+        <p>A student-led non-profit organization that aims to fight against food waste and hunger within our SF community. This social justice club, on campus, takes perishable food that would otherwise be wasted and distributes it to those in need around the Mission and SF communities, prioritizing the unhoused and food insecurity.</p>
+        <p>For additional information, reach out to Mauricio Diaz de Leon at mdiazdeleon@usfca.edu </p>
+        <p>Other updates and events are posted on their Instagram: @usfcafrn</p>
+        <p></p>
+        <h3>USF Garden</h3>
+        <p>The USF Garden is a vibrant, all-inclusive community that promotes the growth and cultivation of local food in a college campus setting. Current garden manager, Story Gartland, says their favorite part of the garden is the rich community it creates. With an open and experiential teaching mindset, the garden is open for any students to grow, tend, and harvest!</p>
+        <p>Find more information on the USF Community Garden at their website: https://www.usfca.edu/arts-sciences/programs/undergraduate/urban-agriculture-minor/community-garden</p>
+        <p></p>
+        <h3>USF Farm Stand</h3>
+        <p>Held on Welch Field, the USF Farm Stand is roughly every second Tuesday of every month. All the food is harvested, collected, cooked, and prepared by students in the Community Garden Outreach class and is completely free for anyone (students, faculty, and community members alike). Because the food is free and made by students, there is a limit to how many people the Farm Stand can accommodate which is why it is not highly advertised. But the Farm Stand is welcome for all, so next time you are on campus on a Tuesday, come to Welch Field to see if the Farm Stand is around!</p>
+        <p></p>
+        <h3>CalFresh</h3>
+        <p>CalFresh is a nutrition program that assists people with how to buy healthy foods.</p>
+        <p>It is funded by the Federal Government</p>
+        <p>Want to apply? Check out these links!</p>
+        <p><strong>CalFresh for Students:</strong> www.getcalfresh.org/students</p>
+        
+
+
+        <h2>Want to add a resource?</h2>
+        <form class="resource-form">
+            <input type="text" id="resource-name" placeholder="Your Name">
+            <textarea id="resource-text" rows="4" placeholder="Add your resource here..."></textarea>
+            <button type="button" onclick="submitResource()">Submit Resource</button>
+        </form>
+
+        <div id="new-resource"></div>
+    </main>
+
+    <script>
+        function submitResource() {
+            let name = document.getElementById("resource-name").value;
+            let resourceText = document.getElementById("resource-text").value;
+
+            if (name && reviewText) {
+                let newResource = document.createElement("div");
+                newReview.classList.add("resource-box");
+                newReview.innerHTML = `<h3>Resource by ${name}</h3><p>${resourceText}</p>`;
+
+                document.getElementById("new-resource").appendChild(newResource);
+                document.getElementById("resource-name").value = "";
+                document.getElementById("resource-text").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
+
